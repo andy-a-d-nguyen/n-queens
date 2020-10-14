@@ -110,7 +110,21 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+      var rows = this.rows();
+      //create a column array
+      var thisColumn = [];
+      //populate column array with values from each row
+      for (var i = 0; i < rows.length; i++) {
+        column.push(rows[i][colIndex]);
+      }
+      // Start counter for number of pieces
+      var numberOfPieces = 0;
+      // Count number of pieces
+      for (var i = 0; i < thisRow.length; i++) {
+        numberOfPieces += thisRow[i];
+      }
+      //Return whether we have more than one piece
+      return numberOfPieces > 1;
     },
 
     // test if any columns on this board contain conflicts
