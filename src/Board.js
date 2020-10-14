@@ -162,7 +162,24 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      //get all rows
+      var allRows = this.rows();
+      //create a reference number equal to input parameter index
+      var reference = majorDiagonalColumnIndexAtFirstRow;
+      //create an array with the target index of first row
+      var majorDiagonal = [allRows[0][reference]];
+      //iterate over all rows (starting at row 1)
+      for (var i = 1; i < allRows.length; i++) {
+        //increment reference
+        reference++;
+        //push element at reference index to diagonal array
+        majorDiagonal.push(allRows[i][reference]);
+      }
+      var count = 0;
+      for (var j = 0; j < majorDiagonal.length; j++) {
+        count += majorDiagonal[j];
+      }
+      return count > 1;
     },
 
     // test if any major diagonals on this board contain conflicts
