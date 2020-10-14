@@ -62,13 +62,12 @@
     },
 
 
-/*
+    /*
          _             _     _
      ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
     / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
     \__ \ || (_| | |  | |_  | | | |  __/ | |  __/_
     |___/\__\__,_|_|   \__| |_| |_|\___|_|  \___(_)
-
  */
     /*=========================================================================
     =                 TODO: fill in these Helper Functions                    =
@@ -78,13 +77,30 @@
     // --------------------------------------------------------------
     //
     // test if a specific row on this board contains a conflict
+
     hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+      // Get and name the current row
+      var thisRow = this.get(rowIndex);
+      // Start a counter for number of pieces
+      var numberOfPieces = 0;
+      // Count number of pieces
+      for (var i = 0; i < thisRow.length; i++) {
+        numberOfPieces += thisRow[i];
+      }
+      //Return whether we have more than one piece
+      return numberOfPieces > 1;
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
+      // check each row
+      for (var i = 0; i < this.rows().length; i++) {
+        if (this.hasRowConflictAt(i)) {
+          return true;
+        }
+      }
+      //if no conflicts found in any row, return false
+      return false;
     },
 
 

@@ -1,0 +1,77 @@
+/*
+Other Notes
+rows = horizontal
+columns = vertical
+major diagonals = diagonal in the form of a \
+minor diagonals = diagonal in the form of a /
+*/
+
+
+//to Create a new board
+//new board can take either a matrix, or an object like {n: 5}
+var board = new Board(matrix);
+
+//to generate an empty matrix
+var emptyMatrix = makeEmptyMatrix(n);
+
+
+//VERIFYING CONFLICTS
+var verifyConflicts = verifyConflictTypes(expectedConflicts, matrix);
+//expectedConflicts is an array with the words of what conflict rules were violated
+var expectedConflicts = [''];
+var expectedConflicts = ['row', 'rooks', 'queens'];
+var expectedConflicts = ['col', 'rooks', 'queens'];
+var expectedConflicts = ['majorDiagonal', 'queens'];
+var expectedConflicts = ['minorDiagonal', 'queens'];
+
+
+//      Board Properties
+//create board
+var board = new Board(matrix);
+
+//Actual Properties of board
+board = {
+  attributes: [[...],[...],[...]]// a matrix
+  changed: [[...],[...],[...]] //a matrix
+  _currentAttributes: [[...],[...],[...]]// a matrix
+  _previousAttributes: [[...],[...],[...]] //a matrix
+  cid: "c4" //a string position???
+  _.changes: [] // an array of some changes?
+  _.changing: false // a boolean of whether its currently changing?
+  _.hasComputed: true // a boolean of whether this has computed?
+  _.pending: false // a boolean of whether it is pending?
+  _.proto: Backbone.Model // prototype chain to the Backbone Model
+}
+
+
+board.attributes = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+board.attributes[0] = [0, 0, 0];
+board.attributes[1] = [0, 0, 0];
+board.attributes[2] = [0, 0, 0];
+
+board.changed = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+board.changed[0] = [0, 0, 0];
+board.changed[1] = [0, 0, 0];
+board.changed[2] = [0, 0, 0];
+
+
+board._currentAttributes = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+board._currentAttributes[0] = [0, 0, 0];
+board._currentAttributes[1] = [0, 0, 0];
+board._currentAttributes[2] = [0, 0, 0];
+
+
+board._previousAttributes = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+board._previousAttributes[0] = [0, 0, 0];
+board._previousAttributes[1] = [0, 0, 0];
+board._previousAttributes[2] = [0, 0, 0];
+
+
+//METHODS TO USE ON BOARD
+
+board.get(n) // returns the nth row (from attribute);
+board.hasAny_____Conflicts() // returns a boolean  // ______ refers to any type of conflict name
+board.rows() // returns a matrix with all rows
+board.togglePiece(rowIndex, columnIndex); // Toggles a piece at the set location
+board._getFirstRowColumnIndexForMajorDiagonalOn(); //gets first
+board._isInBound(rowIndex, colIndex); //returns a boolean to see if the placement is in bounds of the board
