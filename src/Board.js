@@ -97,6 +97,9 @@
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
+      if (this.get(0) === undefined) {
+        return false;
+      }
       // create a variable to store all the rows
       var rows = this.rows();
 
@@ -135,6 +138,9 @@
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
+      if (this.get(0) === undefined) {
+        return false;
+      }
       // get a random row
       var row = this.get(0);
       // store length of random row
@@ -183,6 +189,9 @@
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
+      if (this.get(0) === undefined) {
+        return false;
+      }
       // get row at 0
       var row = this.get(0);
       // NUM get length of row
@@ -227,6 +236,9 @@
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
+      if (this.get(0) === undefined) {
+        return false;
+      }
       // get row at 0
       var row = this.get(0);
       // num: store length of row
